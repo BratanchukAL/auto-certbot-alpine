@@ -10,7 +10,7 @@ RUN pip install cryptography
 RUN pip install certbot
 
 # set Crontab , for test: 0-59 * * * *
-RUN echo "0 0,12 * * * certbot renew -n >> /dev/stderr" > /etc/crontabs/root
+RUN echo "0 0,12 * * * certbot renew --non-interactive >> /dev/stderr" > /etc/crontabs/root
 RUN /usr/bin/crontab /etc/crontabs/root
 
 # set nginx.conf
