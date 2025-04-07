@@ -10,8 +10,7 @@ services:
             - 80:80
         environment:
             - EMAIL=ta@mail.com
-            - DOMAINS=example.com
+            - DOMAINS=best.com
         volumes:
-            - var/www/certbot/:/var/www/certbot/
-            - ./letsencrypt/:/etc/letsencrypt/
-
+            - /var/www/certbot/:/var/www/certbot/
+            - ./nginx/letsencrypt/:/etc/letsencrypt/

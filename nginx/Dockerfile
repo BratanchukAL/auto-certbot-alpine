@@ -2,9 +2,14 @@ FROM nginx:1.27.2-alpine3.20
 
 RUN apk update && apk --no-cache add jq openssl openssh openrc mdevd-openrc
 
-RUN apk add --no-cache certbot
+#RUN apk add --no-cache certbot
+#
+RUN apk add --no-cache python3 py3-pip augeas-libs
 
-# bash
+RUN python3 -m pip config set global.break-system-packages true
+RUN python3 -m pip install --upgrade pip
+RUN pip install cryptography
+RUN pip install certbot
 
 # for openrc
 RUN mkdir /run/openrc/
@@ -22,5 +27,5 @@ COPY ./nginx/custom-entrypoint.sh /docker-entrypoint.d/
 
 RUN chmod +x /docker-entrypoint.d/custom-entrypoint.sh
 
-# set Crontab
-RUN echo "0 0,12 * * * certbot renew" > /etc/crontabs/root
+#RUN chown -R 1000:1000 /var
+#RUN chown -R 1000:1000 /etc
