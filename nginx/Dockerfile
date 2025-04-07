@@ -20,8 +20,8 @@ COPY ./nginx/nginx.conf /etc/nginx/
 COPY ./nginx/default.conf /etc/nginx/conf.d/
 
 # set Entrypoint
-COPY ./nginx/custom-entrypoint.sh /docker-entrypoint.d/
-RUN chmod +x /docker-entrypoint.d/custom-entrypoint.sh
+COPY ./nginx/preparation.sh /docker-entrypoint.d/
+RUN chmod +x /docker-entrypoint.d/preparation.sh
 COPY ./nginx/overridden-docker-entrypoint.sh /
 RUN chmod +x /overridden-docker-entrypoint.sh
 
