@@ -1,7 +1,22 @@
 version: '3'
 
+x-security-base: &x-security-base
+    # import directive <<: *x-security-base
+    # import values *x-security-base
+#    user: "1000:1000"
+    pids_limit: 100
+    cpus: "0.5" # 0.0 - 1 - this 1 core
+    mem_limit: 100m # Override per container if necessary
+    security_opt:
+        - no-new-privileges=true
+    logging:
+        options:
+            max-size: "10m"
+            max-file: "3"
+
 services:
     nginx:
+        <<: *x-security-base
         build:
             context: ./
             dockerfile: ./nginx/Dockerfile
