@@ -6,3 +6,4 @@ Auto update Let's Encrypt.
 
 # TODO
 AC-1: init
+AC-: А теперь нужно чтобы nginx подхватывали новый сертификат. 
