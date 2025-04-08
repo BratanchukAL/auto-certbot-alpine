@@ -29,3 +29,10 @@ services:
         volumes:
             - /var/www/certbot/:/var/www/certbot/
             - ./nginx/letsencrypt/:/etc/letsencrypt/
+        logging:
+            # Redirect to systemd for other services (fail2ban)
+            driver: journald
+            options:
+                # "{{.ImageName}}/{{.Name}}/{{.ID}}"
+                tag: "nginx-80"
+
