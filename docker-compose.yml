@@ -24,8 +24,8 @@ services:
         ports:
             - 80:80
         environment:
-            - EMAIL=ta@mail.com
-            - DOMAINS=best.com
+            - EMAIL
+            - DOMAINS
         volumes:
             - /var/www/certbot/:/var/www/certbot/
             - ./nginx/letsencrypt/:/etc/letsencrypt/
@@ -35,4 +35,3 @@ services:
             options:
                 # "{{.ImageName}}/{{.Name}}/{{.ID}}"
                 tag: "nginx-80"
-
