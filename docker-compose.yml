@@ -27,8 +27,8 @@ services:
             - EMAIL
             - DOMAINS
         volumes:
-            - /var/www/certbot/:/var/www/certbot/
-            - ./nginx/letsencrypt/:/etc/letsencrypt/
+            - certbot:/var/www/certbot/
+            - letsencrypt:/etc/letsencrypt/
         logging:
             # Redirect to systemd for other services (fail2ban)
             driver: journald
