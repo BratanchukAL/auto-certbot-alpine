@@ -37,4 +37,6 @@ services:
                 tag: "nginx-80"
 volumes:
     certbot:
+        name: auto-certbot-alpine_certbot
     letsencrypt:
+        name: auto-certbot-alpine_letsencrypt
