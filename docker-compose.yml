@@ -35,3 +35,6 @@ services:
             options:
                 # "{{.ImageName}}/{{.Name}}/{{.ID}}"
                 tag: "nginx-80"
+volumes:
+    certbot:
+    letsencrypt:

@@ -8,3 +8,7 @@ Auto update Let's Encrypt.
 AC-1: init
 
 AC-2: jail nginx-80-http-400
+
+AC-3: update images
+
+AC-4: fix volumes
